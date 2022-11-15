@@ -1,0 +1,8 @@
+<!--Person-->
+<div *ngIf="isPerson">
+  <app-person-details [person]="personDetails"></app-person-details>
+</div>
+<!--Organization-->
+<div *ngIf="!isPerson">
+  <app-organization-details [organizationDetails]="organizationDetails"></app-organization-details>
+</div>

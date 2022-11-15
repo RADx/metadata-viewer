@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-section {
+  margin-bottom: 2em;
+}
+
+.form-section__title {
+  padding-bottom: 0.5em;
+  font-size: xx-large;
+}
+
+.form-field {
+    margin-bottom: 0.8em;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    font-weight: bold;
+    margin-bottom: 0.1em;
+}
+
+.form-field__content {
+  line-height: 1.2em;
+  min-height: 1.2em;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-row .form-field {
+    margin-right: 3em;
+}
+
+
+html, body { height: 100%; }
+body { margin: 20px; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

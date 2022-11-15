@@ -1,0 +1,14 @@
+.person-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.person-details__name {
+  margin-right: 0.5em;
+}
+.person-details__role {
+  margin-right: 1em;
+}
+.person-details__affiliation {
+
+}

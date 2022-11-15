@@ -1,0 +1,21 @@
+<div class="form-field">
+    <label>Name</label>
+    <div class="form-field__content">{{parentStudyElement?.['Study Name']?.['@value']}}</div>
+</div>
+
+<div class="form-field">
+  <label>PHS number</label>
+  <app-phs-identifier-field [phsIdentifierField]="parentStudyElement?.['PHS Identifier']" class="form-field__content"></app-phs-identifier-field>
+</div>
+
+
+<div class="form-row">
+    <div class="form-field">
+        <label>Start date</label>
+        <div class="form-field__content">{{parentStudyElement?.['Study Start Date']?.['@value']}}</div>
+    </div>
+    <div class="form-field">
+        <label>End date</label>
+        <div class="form-field__content">{{parentStudyElement?.['Study End Date']?.['@value']}}</div>
+    </div>
+</div>

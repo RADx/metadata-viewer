@@ -1,0 +1,11 @@
+<div *ngIf="person?.identifier !== undefined" class="person-details">
+  <a href="{{person?.identifier}}" class="person-details__name">{{person?.name}}</a> <span class="person-details__role">({{person?.role}})</span>
+  <app-affiliation [affiliation]="person?.affiliation" class="person-details__affiliation"></app-affiliation>
+</div>
+
+<div *ngIf="person?.identifier === undefined" class="person-details">
+  <span class="person-details__name">{{person?.name}}</span> <span class="person-details__role">({{person?.role}})</span>
+  <app-affiliation [affiliation]="person?.affiliation" class="person-details__affiliation"></app-affiliation>
+</div>
+
+

@@ -1,0 +1,107 @@
+<div class="form-section">
+  <div class="form-section__title">Study Details</div>
+
+  <div *ngFor="let parentStudy of metadata?.['Data File Parent Studies']">
+    <app-parent-study-element [parentStudyElement]="parentStudy"></app-parent-study-element>
+  </div>
+</div>
+
+<div class="form-section">
+  <div class="form-section__title">Data File Details</div>
+  <div class="form-field">
+    <label>Title</label>
+    <div *ngFor="let title of metadata?.['Data File Titles']" class="form-field__content">
+      {{title?.Title?.['@value']}}
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label>Description</label>
+    <div *ngFor="let desc of metadata?.['Data File Descriptions']" class="form-field__content">
+      {{desc?.Description?.['@value']}}
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label>Primary language</label>
+      <app-language [langTag]="metadata?.['Data File Language']?.['Primary Language']?.['@value']"></app-language>
+    </div>
+
+    <div class="form-field">
+      <label>Other languages</label>
+      <div class="form-row">
+        <div *ngFor="let lang of metadata?.['Data File Language']?.['Other Languages']; let last = last" style="display: flex; flex-direction: row;">
+          <app-language [langTag]="lang?.['@value']">
+          </app-language>
+          <span *ngIf="!last">,&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label>Version</label>
+      <div class="form-field__content">
+        {{metadata?.['Data File Identity']?.['Version']?.['@value']}}
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label>License</label>
+      <div *ngFor="let right of metadata?.['Data File Rights']" class="form-field__content">
+        <a href="{{right?.['License Name']?.['@id']}}">{{right?.['License Name']?.['rdfs:label']}}</a>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label>{{metadata?.['Data File Identity']?.['Identifier Type']?.['rdfs:label']}}</label>
+      <div class="form-field__content">
+        <a target="_blank" href="{{metadata?.['Data File Identity']?.['Identifier']?.['@value']}}">
+          {{metadata?.['Data File Identity']?.['Identifier']?.['@value']}}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label>Subjects</label>
+    <div *ngFor="let subject of metadata?.['Data File Subjects']" class="form-field__content">
+      <div>{{subject?.['Subject Identifier']?.['rdfs:label']}}</div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label>Creators</label>
+    <div *ngFor="let creator of metadata?.['Data File Creators']" class="form-field__content">
+      <app-creator [creatorElement]="creator"></app-creator>
+    </div>
+  </div>
+
+
+  <div class="form-field">
+    <label>Contributors</label>
+    <div *ngFor="let contributor of metadata?.['Data File Contributors']" class="form-field__content">
+      <app-contributor [contributorElement]="contributor"></app-contributor>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label>File name</label>
+    <div class="form-field__content">
+      <!--
+      Note that there is an issue to fix the name of the File Name field.
+      See https://github.com/RADx/metadata-specification/issues/6
+      -->
+      <app-file-name [fileName]="metadata?.['Data File Identity']?.['File Name ']"></app-file-name>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label>SHA-256</label>
+    <div class="form-field__content">
+      {{metadata?.['Data File Identity']?.['SHA256 digest']?.['@value']}}
+    </div>
+  </div>
+</div>

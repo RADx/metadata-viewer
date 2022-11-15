@@ -1,0 +1,8 @@
+<div *ngIf="organizationDetails.identifier !== undefined">
+  <a href="{{organizationDetails.identifier}}">
+    {{organizationDetails.name}}
+  </a>
+</div>
+<div *ngIf="organizationDetails.identifier === undefined">
+  {{organizationDetails.name}}
+</div>
